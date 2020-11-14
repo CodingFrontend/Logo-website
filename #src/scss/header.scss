@@ -1,0 +1,158 @@
+//====================================================================================================
+.header {
+    background: url("../img/bg.jpg") top no-repeat;
+
+    &__top {}
+
+    &__bottom {}
+}
+
+.top-header {
+    &__content {
+        display: flex;
+        align-items: center;
+    }
+
+    &__column {
+        flex: 0 1 50%;
+
+        &:nth-child(2) {
+            align-self: flex-start;
+            padding-top: 25px;
+            flex: 0 0 190px;
+            text-align: center;
+        }
+    }
+
+    &__menu {}
+
+    &__logo {}
+
+    &__contacts {}
+}
+
+.menu {
+    &__icon {}
+
+    &__body {}
+
+    &__list {
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+            flex: 0 1 20%;
+        }
+    }
+
+    &__link {
+        font-family: 'Play';
+        height: 27px;
+        padding: 0px 22px;
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: underline;
+        color: #fff;
+        white-space: nowrap;
+
+        @media (min-width: $md2 + px) {
+            &:hover {
+                border-radius: 20px;
+                background-color: #068292;
+            }
+        }
+    }
+}
+
+.icon-menu {}
+
+.contacts-header {
+    &__column {}
+
+    &__item {
+        &_icon {}
+    }
+
+    &__label {}
+
+    &__phone {}
+}
+
+.bottom-header {
+    &__content {}
+
+    &__column {}
+
+    &__actions {}
+
+    &__info {}
+}
+
+.container {}
+
+.actions-header {
+    &__login {}
+
+    &__reg {}
+
+    &__email {}
+}
+
+.info-header {
+    &__column {}
+
+    &__callback {}
+
+    &__schedule {}
+
+    &__cart {}
+}
+
+//====================================================================================================
+
+/*
+//Burger
+.icon-menu {
+	display: none;
+	@media (max-width: $md3+px) {
+		display: block;
+		position: absolute;
+		top: 18px;
+		right: 10px;
+		width: 30px;
+		height: 18px;
+		cursor: pointer;
+		z-index: 5;
+		span {
+			transition: all 0.3s ease 0s;
+			top: calc(50% - 1px);
+			left: 0px;
+			position: absolute;
+			width: 100%;
+			height: 2px;
+			background-color: #000;
+			&:first-child {
+				top: 0px;
+			}
+			&:last-child {
+				top: auto;
+				bottom: 0px;
+			}
+		}
+		&._active {
+			span {
+				transform: scale(0);
+				&:first-child {
+					transform: rotate(-45deg);
+					top: calc(50% - 1px);
+				}
+				&:last-child {
+					transform: rotate(45deg);
+					bottom: calc(50% - 1px);
+				}
+			}
+		}
+	}
+}
+*/

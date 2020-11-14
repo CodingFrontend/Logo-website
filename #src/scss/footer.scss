@@ -1,0 +1,103 @@
+select {
+	cursor: pointer;
+}
+.footer {
+	&__container{
+	}
+	&__top {
+		height: 10rem;
+		.footer__container {
+			@media (max-width: $md3+px){
+				border-bottom: .05rem solid #C7C7C7;
+			}
+		}
+	}
+	&__col {
+		&_social {
+			font-size: 2.5rem;
+		}
+	}
+	&__info {
+		font-size: 1.4rem;
+		line-height: 1.7rem;
+		color: #B3B3B3;
+	}
+	&__credits {
+		@media (max-width: $md3+px){
+			padding: 2.7rem 1.5rem;
+		}
+	}
+	&__bottom {
+		padding: 1rem 0rem 3.1rem 0rem;
+		background: #FAF9F8;
+		@media (max-width: $md3+px){
+			background: none;
+			padding: 0rem 0rem 2rem 0rem;
+		}
+	}
+}
+.container {
+}
+.row {
+}
+.col-md-6 {
+}
+.d-flex {
+}
+.justify-content-md-end {
+}
+.fab {
+}
+.fa-vk {
+	color: #5476A4;
+}
+.fa-facebook-square {
+	color: #4A68AD;
+}
+.fa-instagram {
+	color: #37373F;
+}
+.social {
+	margin-right: 3rem;
+	@media (max-width: $md3+px){
+		&:last-child{
+			margin-right: 0rem;
+		}
+	}
+}
+.col-md-3 {
+}
+.mastercard, .visa, .paypal {
+	min-width: 4.4rem;
+	min-height: 3rem;
+	margin-right: 2rem;
+	@media (max-width: $md2+px){
+		margin-right: 1.7rem;
+	}
+}
+.mastercard {
+	background: url("../img/icons/MC.svg") 0 0 no-repeat;
+}
+.visa {
+	background: url("../img/icons/VISA.svg") 0 0 no-repeat;
+}
+.paypal {
+	background: url("../img/icons/PP.svg") 0 0 no-repeat;
+}
+.lang {
+	background: transparent;
+	font-size: 1.9rem;
+	color: #37373F;
+}
+.fa-cc-paypal {
+}
+.flex-column {
+}
+.align-items-center {
+}
+
+//====================================================================================================
+
+//====================================================================================================
+
+
