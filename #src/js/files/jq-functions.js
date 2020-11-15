@@ -1,3 +1,14 @@
+// burger
+$('.icon-menu').click(function(event){
+	$(this).toggleClass('_active');
+	$('.menu__body').toggleClass('_active');
+	if($(this).hasClass('_active')){
+		$('body').data('scroll',$(window).scrollTop());
+	}
+		$('body').toggleClass('_lock');
+})
+// 
+
 // logo click => scroll top
 // $('.logo').click(function(event){
 // 	$('body').data('scroll',$(window).scrollTop());
