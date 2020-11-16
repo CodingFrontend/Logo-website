@@ -50,7 +50,8 @@
 	&__icon {}
 	&__body {
 		@media (max-width: $md2+px){
-			display: none;
+			opacity: 0;
+			visibility: hidden;
 			position: fixed;
 			height: 100%;
 			width: 100%;
@@ -60,6 +61,7 @@
 			overflow: auto;
 			background-color: #fff;
 			padding: 120px 20px 30px 20px;
+			@include transition(all .3s ease);
 			&:before {
 				content: "";
 				position: fixed;
@@ -70,10 +72,12 @@
 				background-color: #009fb3;
 			}
 			&._active {
+				opacity: 1;
+				visibility: visible;
 				display: block;
 			}
 		}
-		@media (max-width: 640px){
+		@media (max-width: $md3+px){
 			padding: 90px 20px 30px 20px;
 			&:before {
 				content: "";
@@ -88,9 +92,6 @@
 			margin: 1px;
 			@media (max-width: $md2+px){
 				margin-bottom: 20px;
-				&:last-child{
-					margin-bottom: 0;
-				}
 			}
 		}
 		@media (max-width: $md1+px){
@@ -167,9 +168,21 @@
 	}
 }
 .contacts-header {
+	&__label {
+		&_free {}
+	}
+}
+.contacts-header {
+	&__phone {
+		&__free {}
+	}
+}
+
+.contacts-header {
 	display: flex;
 	padding-left: 30px;
 	justify-content: center;
+	align-items: center;
 	@media (max-width: $md3+px){
 	justify-content: flex-end;
 	}
@@ -180,11 +193,6 @@
 		padding-left: 30px;
 		@media (max-width: $md1+px){
 			padding-left: 25px;
-		}
-		@media (max-width: $md2+px){
-			&:last-child{
-				display: none;
-			}
 		}
 		@media (max-width: $md3+px){
 			padding: 0;
@@ -207,12 +215,22 @@
 				padding: 0;
 			}
 		}
+		&_forcart {
+			@media (max-width: 640px){
+				margin-left: 10px;
+			}
+		}
 	}
 	&__label {
 		font-size: 12px;
 		font-weight: 300;
 		color: #fff;
 		margin-bottom: 5px;
+		&_free {
+			@media (max-width: $md2+px){
+				font-size: 0;
+			}
+		}
 		@media (max-width: 640px){
 			display: none;
 		}
@@ -222,6 +240,14 @@
 		font-weight: 900;
 		color: #fff;
 		white-space: nowrap;
+		&__free {
+			@media (max-width: $md2+px){
+				font-size: 0;
+			}
+			@media (max-width: 640px){
+				display: none!important;
+			}
+		}
 		@media (max-width: $md1+px){
 			font-size: 16px;
 		}
@@ -235,6 +261,7 @@
 		}
 	}
 }
+
 .bottom-header {
 	&__content {
 		display: flex;
@@ -386,6 +413,15 @@
 				top: -3px;
 				@media (max-width: $md1+px){
 					right: -10px;
+				}
+			}
+			@media (max-width: 640px){
+				width: 43px;
+				height: 43px;
+				span {
+					font-size: 14px;
+					line-height: 20px;
+					padding: 0px 7px;
 				}
 			}
 		}

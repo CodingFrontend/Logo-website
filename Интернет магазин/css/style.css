@@ -1282,6 +1282,9 @@ body.ie ._ibg img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .contacts-header__column {
@@ -1613,7 +1616,8 @@ select {
   }
 
   .menu__body {
-    display: none;
+    opacity: 0;
+    visibility: hidden;
     position: fixed;
     height: 100%;
     width: 100%;
@@ -1623,6 +1627,9 @@ select {
     overflow: auto;
     background-color: #fff;
     padding: 120px 20px 30px 20px;
+    -webkit-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
   }
 
   .menu__body:before {
@@ -1636,15 +1643,13 @@ select {
   }
 
   .menu__body._active {
+    opacity: 1;
+    visibility: visible;
     display: block;
   }
 
   .menu__list li {
     margin-bottom: 20px;
-  }
-
-  .menu__list li:last-child {
-    margin-bottom: 0;
   }
 
   .menu__list {
@@ -1707,13 +1712,17 @@ select {
     bottom: calc(50% - 1px);
   }
 
-  .contacts-header__column:last-child {
-    display: none;
-  }
-
   .contacts-header__item_icon {
     padding: 0px 30px;
     border: none;
+  }
+
+  .contacts-header__label_free {
+    font-size: 0;
+  }
+
+  .contacts-header__phone__free {
+    font-size: 0;
   }
 
   .actions-header__item {
@@ -1768,6 +1777,15 @@ select {
     height: 70px;
   }
 
+  .menu__body {
+    padding: 90px 20px 30px 20px;
+  }
+
+  .menu__body:before {
+    content: "";
+    height: 70px;
+  }
+
   .contacts-header {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
@@ -1805,22 +1823,21 @@ select {
     max-width: 100%;
   }
 
-  .menu__body {
-    padding: 90px 20px 30px 20px;
-  }
-
-  .menu__body:before {
-    content: "";
-    height: 70px;
-  }
-
   .contacts-header__item_icon {
     background: none !important;
     padding: 0;
   }
 
+  .contacts-header__item_forcart {
+    margin-left: 10px;
+  }
+
   .contacts-header__label {
     display: none;
+  }
+
+  .contacts-header__phone__free {
+    display: none !important;
   }
 
   .contacts-header__phone {
@@ -1849,6 +1866,17 @@ select {
 
   .info-header__column {
     padding: 0;
+  }
+
+  .info-header__item_cart {
+    width: 43px;
+    height: 43px;
+  }
+
+  .info-header__item_cart span {
+    font-size: 14px;
+    line-height: 20px;
+    padding: 0px 7px;
   }
 }
 @supports (-webkit-appearance:none){

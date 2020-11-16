@@ -445,15 +445,18 @@ $(window).resize(function(event) {
 });
 function adaptive_header(w,h) {
 	let bottomHeaderColumn_1 = $('.bottom-header__column').eq(0);
-	let bottomHeaderColumn_2 = $('.bottom-header__column').eq(1);
-	if (w < 640) {
-		if(!bottomHeaderColumn_1.hasClass('done') && !bottomHeaderColumn_2.hasClass('done')){
+	let infoHeaderColumn = $('.info-header__column').eq(0);
+	let infoHeaderCart = $('.info-header__column_cart');
+	if (w < 639.98) {
+		if(!bottomHeaderColumn_1.hasClass('done') && !infoHeaderColumn.hasClass('done') && !infoHeaderCart.hasClass('done')){
 			bottomHeaderColumn_1.addClass('done').prependTo($('.menu__body'));
-			bottomHeaderColumn_2.addClass('done').appendTo($('.menu__body'));
+			infoHeaderColumn.addClass('done').appendTo($('.menu__body'));
+			infoHeaderCart.addClass('done').appendTo($('.contacts-header__item_forcart'));
 		}
 	} else {
 		bottomHeaderColumn_1.removeClass('done').prependTo($('.bottom-header__content'));
-		bottomHeaderColumn_2.removeClass('done').appendTo($('.bottom-header__content'));
+		infoHeaderColumn.removeClass('done').prependTo($('.bottom-header__info'));
+		infoHeaderCart.removeClass('done').appendTo($('.bottom-header__info'));
 	}
 }
 
