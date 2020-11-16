@@ -7,6 +7,11 @@ $('.icon-menu').click(function(event){
 	}
 		$('body').toggleClass('_lock');
 })
+
+$('.menu-page__burger').click(function(event){
+	$(this).toggleClass('_active');
+	$('.menu-page__body').toggleClass('_active');
+})
 // 
 
 // logo click => scroll top
