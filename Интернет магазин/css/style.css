@@ -1544,8 +1544,7 @@ select {
 .menu-page {
   position: relative;
   background-image: url("../img/main/aside/bg.jpg");
-  background-repeat: no-repeat;
-  background-size: auto 100%;
+  z-index: 2;
 }
 
 .menu-page__header {
@@ -1556,8 +1555,6 @@ select {
       -ms-flex-align: center;
           align-items: center;
   padding: 21px;
-  position: relative;
-  z-index: 2;
 }
 
 .menu-page__title {
@@ -1626,12 +1623,11 @@ select {
 }
 
 .menu-page__body {
-  position: relative;
-  z-index: 2;
+  display: none;
 }
 
-.menu-page__parent .menu-page__link {
-  position: relative;
+.menu-page__body._active {
+  display: block;
 }
 
 .menu-page__parent .menu-page__link:after {
@@ -1639,7 +1635,7 @@ select {
   position: absolute;
   top: 50%;
   right: 10px;
-  background: url("../img/icons/main/aside/arrow.png") no-repeat;
+  background: url("../img/icons/main/aside/arrow.png") 0 0 no-repeat;
   width: 19px;
   height: 19px;
   -webkit-transform: translate(0, -50%);
@@ -1647,13 +1643,23 @@ select {
           transform: translate(0, -50%);
 }
 
-.menu-page__parent ._active .submenu-page__item {
+.menu-page__parent._active .submenu-page__item {
   -webkit-transform: translate(0%, 0);
       -ms-transform: translate(0%, 0);
           transform: translate(0%, 0);
+  z-index: 2;
+}
+
+.menu-page__parent._active .menu-page__link {
+  background-color: #098494;
+}
+
+.menu-page__parent._active .menu-page__submenu {
+  visibility: visible;
 }
 
 .menu-page__link {
+  position: relative;
   display: block;
   padding: 16px 20px;
   font-size: 12px;
@@ -1672,19 +1678,23 @@ select {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  visibility: hidden;
 }
 
 .submenu-page__item {
   position: absolute;
   top: 0;
   left: 0;
-  width: 280px;
+  width: 100%;
   height: 100%;
   background-color: #fff;
   border: 2px solid #098494;
   -webkit-transform: translate(-100%, 0);
       -ms-transform: translate(-100%, 0);
           transform: translate(-100%, 0);
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .submenu-page__menu {
@@ -2208,7 +2218,7 @@ select {
 .visa{background:url("../img/icons/VISA.svg") 0 0 no-repeat}
 .paypal{background:url("../img/icons/PP.svg") 0 0 no-repeat}
 .menu-page{background-image:url("../img/main/aside/bg.webp")}
-.menu-page__parent .menu-page__link:after{background:url("../img/icons/main/aside/arrow.webp") no-repeat}
+.menu-page__parent .menu-page__link:after{background:url("../img/icons/main/aside/arrow.webp") 0 0 no-repeat}
 .item-product__add{background:url("../img/icons/main/aside/cart-grey.webp") left no-repeat}
 }
 
