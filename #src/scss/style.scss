@@ -91,7 +91,7 @@ body {
 	&__menu {}
 	&__content {
 		flex: 1 1 auto;
-		padding: 30px;
+		padding-left: 30px;
 	}
 }
 .menu-page {
@@ -319,6 +319,116 @@ body {
 		padding-left: 6px;
 	}
 }
+.page {
+	&__content {}
+	&__search {
+		
+	}
+}
+.search-page {
+	display: flex;
+	position: relative;
+	&__select {
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		padding: 0px 14px;
+		background-color: #f2f2f2;
+		&::before {
+			content: "";
+			background: url("../img/icons/main/content/search-page.png") 0 0 no-repeat;
+			width: 17px;
+			height: 17px;
+		}
+		&::after{
+			content: "";
+			@include transition(all .3s ease);
+			background: url("../img/icons/main/content/arrow_down.png") 0 0 no-repeat;
+			width: 10px;
+			height: 10px;
+		}
+		&._active {
+			&::after{
+				@include rotate(-180deg);
+			}
+		}
+	}
+	&__title {
+			margin: 0px 13px;
+			font-weight: 300;
+			color: #666666;
+			border-bottom: 1px dashed;
+	}
+	&__categories {
+		background-color: #fff;
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+	}
+	&__input {
+		flex: 1 1 auto;
+		border-top: 2px solid #f2f2f2;
+		border-bottom: 2px solid #f2f2f2;
+		.input {
+			height: 100%;
+		}
+	}
+	&__btn {
+		line-height: 39px;
+		height: 39px;
+		padding: 0px 25px;
+		color: #fff;
+		background-color: #f68038;
+		font-size: 12px;
+		text-transform: uppercase;
+		font-weight: 900;
+	}
+}
+.categories-search {
+	display: none;
+	border-bottom: 4px solid #f68038;
+	&__row {
+		display: flex;
+	}
+	&__column {
+		flex: 0 1 33.333%;
+		border-right: 1px solid #dddddd;
+		padding: 28px 40px 35px 40px;
+		&:first-child{
+			border-left: 1px solid #dddddd;
+		}
+	}
+	&__checkbox {
+		.checkbox__input {
+			&:checked + .checkbox__text {
+				color: #f68038;
+			}
+		}
+		.checkbox__text {
+			color: #999;
+			font-weight: 300;
+			@include transition(all .3s ease);
+			&::before {
+				display: none;
+			}
+		}
+	}
+	&__list {
+		li {
+			margin-bottom: 25px;
+			&:last-child{
+				margin: 0;
+			}
+			&:hover {
+				.checkbox__text {
+					color: #f68038;
+				}
+			}
+		}
+	}
+}
+
 
 //===================================================================================================================================
 
