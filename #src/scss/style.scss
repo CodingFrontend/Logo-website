@@ -14,7 +14,7 @@
 //</Иконочные шрифты>==========================================================================================
 
 //<Шрифт по умолчанию>==========================================================================================
-$fontFamily: "";
+$fontFamily: "Roboto";
 //</Шрифт по умолчанию>==========================================================================================
 
 //</ШРИФТЫ>=======================================================================================================
@@ -78,7 +78,14 @@ body {
 //</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
 
 //<ОСНОВНОЙ БЛОК>====================================================================================================
-
+.ibg{
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+.ibg img{
+	display: none;
+}
 .page {
 	flex: 1 1 auto;
 	padding-top: 160px;
@@ -87,12 +94,21 @@ body {
 	}
 	&__side {
 		flex: 0 0 280px;
+		position: relative;
+		z-index: 5;
 	}
 	&__menu {}
 	&__content {
 		flex: 1 1 auto;
+		min-width: 0;
 		padding-left: 30px;
 	}
+	&__search {
+		padding-bottom: 22px;
+		position: relative;
+		z-index: 2;
+	}
+	&__slider {}
 }
 .menu-page {
 	position: relative;
@@ -108,9 +124,11 @@ body {
 		line-height: 35 / 30 * 100%;
 		text-transform: uppercase;
 		color: #fff;
-		letter-spacing: .75;
+		letter-spacing: .75px;
+		font-weight: 900;
 	}
 	&__burger {
+		cursor: pointer;
 		background-color: #068292;
 		flex: 0 0 35px;
 		width: 35px;
@@ -319,21 +337,30 @@ body {
 		padding-left: 6px;
 	}
 }
-.page {
-	&__content {}
-	&__search {
-		
-	}
-}
 .search-page {
 	display: flex;
 	position: relative;
 	&__select {
 		cursor: pointer;
+	}
+	&__title {
+		cursor: pointer;
+		width: 100%;
+		height: 100%;
+		font-weight: 300;
+		letter-spacing: 1px;
+		color: #666666;
 		display: flex;
 		align-items: center;
 		padding: 0px 14px;
 		background-color: #f2f2f2;
+		span {
+			border-bottom: 1px dashed;
+			margin: 0px 13px;
+			&:last-child{
+				display: none;
+			}
+		}
 		&::before {
 			content: "";
 			background: url("../img/icons/main/content/search-page.png") 0 0 no-repeat;
@@ -352,12 +379,14 @@ body {
 				@include rotate(-180deg);
 			}
 		}
-	}
-	&__title {
-			margin: 0px 13px;
-			font-weight: 300;
-			color: #666666;
-			border-bottom: 1px dashed;
+		&._categories {
+			span {
+				display: none;
+				&:last-child{
+					display: block;
+				}
+			}
+		}
 	}
 	&__categories {
 		background-color: #fff;
@@ -427,6 +456,132 @@ body {
 			}
 		}
 	}
+}
+.mainslider {
+	&__body {
+	}
+	&__slide {
+		position: relative;
+	}
+	&__content {
+		position: relative;
+		z-index: 2;
+	}
+	&__image {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	&__dots {
+		margin-top: -27.5px;
+		display: flex;
+		justify-content: center;
+		position: relative;
+		z-index: 2;
+		counter-reset: item;
+		.swiper-pagination-bullet{
+			width: 55px;
+			height: 55px;
+			margin-right: 45px;
+			border: 2px solid #fff;
+			border-radius: 50%;
+			position: relative;
+			overflow: hidden;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: center;
+			&:after{
+				opacity: 0;
+				@include transition(all .3s ease);
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				counter-increment: item;
+				content: counter(item);
+				background-color: #f68038;
+				color: #fff;
+				font-size: 16px;
+				font-weight: 900;
+			}
+		}
+		.swiper-pagination-bullet-active{
+			&:after{
+				opacity: 1;
+			}
+		}
+	}
+}
+._swiper {}
+.content-mainslider {
+	padding: 21px 35px 60px 21px;
+	&__title {
+		color: #000;
+		font-size: 48px;
+		padding-bottom: 55px;
+		font-weight: 900;
+		text-transform: uppercase;
+		span {
+			color: #f68038;
+			display: block;
+		}
+	}
+	&__text {
+		padding-bottom: 10px;
+	}
+	&__footer {
+		text-align: center;
+	}
+	&__price {
+		color: #fff;
+		font-weight: 900;
+		font-size: 36px;
+		margin-bottom: 24px;
+	}
+	&__btn {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		height: 33px;
+		border: 3px solid #fff;
+		border-radius: 15px;
+		padding: 0px 20px;
+		span {
+			font-weight: 900;
+			text-transform: uppercase;
+			color: #fff;
+			padding-right: 25px;
+			background: url("../img/icons/main/aside/arrow.png") right no-repeat;
+		}
+	}
+}
+.mainslider-text {
+	color: #333;
+	text-transform: uppercase;
+	font-weight: 900;
+	line-height: 24px;
+	&_1 {
+		font-size: 18px;
+		color: #f68038;
+	}
+	&_2 {
+		background-color: #919191;
+		color: #fff;
+		padding: 5px 10px;
+	}
+	&_3 {
+		color: #979797;
+	}
+}
+.rub {
+}
+.ibg {
 }
 
 

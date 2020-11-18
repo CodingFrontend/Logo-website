@@ -1,2 +1,1 @@
-@@include('libs/slick.min.js', {})
-@@include('libs/jquery.inputmask.min.js', {})
+@@include('libs/swiper.min.js', {})

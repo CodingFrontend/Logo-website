@@ -39,7 +39,7 @@ body {
 
 body {
   line-height: 1;
-  font-family: "" !important;
+  font-family: "Roboto" !important;
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
@@ -48,7 +48,7 @@ body {
 input,
 button,
 textarea {
-  font-family: "" !important;
+  font-family: "Roboto" !important;
 }
 
 input::-ms-clear {
@@ -1515,6 +1515,16 @@ select {
   color: #37373F;
 }
 
+.ibg {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.ibg img {
+  display: none;
+}
+
 .page {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
@@ -1532,13 +1542,22 @@ select {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 280px;
           flex: 0 0 280px;
+  position: relative;
+  z-index: 5;
 }
 
 .page__content {
   -webkit-box-flex: 1;
       -ms-flex: 1 1 auto;
           flex: 1 1 auto;
+  min-width: 0;
   padding-left: 30px;
+}
+
+.page__search {
+  padding-bottom: 22px;
+  position: relative;
+  z-index: 2;
 }
 
 .menu-page {
@@ -1562,10 +1581,12 @@ select {
   line-height: 116.66667%;
   text-transform: uppercase;
   color: #fff;
-  letter-spacing: .75;
+  letter-spacing: .75px;
+  font-weight: 900;
 }
 
 .menu-page__burger {
+  cursor: pointer;
   background-color: #068292;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 35px;
@@ -1841,6 +1862,15 @@ select {
 
 .search-page__select {
   cursor: pointer;
+}
+
+.search-page__title {
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+  font-weight: 300;
+  letter-spacing: 1px;
+  color: #666666;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1851,14 +1881,23 @@ select {
   background-color: #f2f2f2;
 }
 
-.search-page__select::before {
+.search-page__title span {
+  border-bottom: 1px dashed;
+  margin: 0px 13px;
+}
+
+.search-page__title span:last-child {
+  display: none;
+}
+
+.search-page__title::before {
   content: "";
   background: url("../img/icons/main/content/search-page.png") 0 0 no-repeat;
   width: 17px;
   height: 17px;
 }
 
-.search-page__select::after {
+.search-page__title::after {
   content: "";
   -webkit-transition: all 0.3s ease;
   -o-transition: all 0.3s ease;
@@ -1868,17 +1907,18 @@ select {
   height: 10px;
 }
 
-.search-page__select._active::after {
+.search-page__title._active::after {
   -webkit-transform: rotate(-180deg);
   -ms-transform: rotate(-180deg);
   transform: rotate(-180deg);
 }
 
-.search-page__title {
-  margin: 0px 13px;
-  font-weight: 300;
-  color: #666666;
-  border-bottom: 1px dashed;
+.search-page__title._categories span {
+  display: none;
+}
+
+.search-page__title._categories span:last-child {
+  display: block;
 }
 
 .search-page__categories {
@@ -1961,6 +2001,158 @@ select {
 
 .categories-search__list li:hover .checkbox__text {
   color: #f68038;
+}
+
+.mainslider__slide {
+  position: relative;
+}
+
+.mainslider__content {
+  position: relative;
+  z-index: 2;
+}
+
+.mainslider__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.mainslider__dots {
+  margin-top: -27.5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: relative;
+  z-index: 2;
+  counter-reset: item;
+}
+
+.mainslider__dots .swiper-pagination-bullet {
+  width: 55px;
+  height: 55px;
+  margin-right: 45px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.mainslider__dots .swiper-pagination-bullet:after {
+  opacity: 0;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  counter-increment: item;
+  content: counter(item);
+  background-color: #f68038;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 900;
+}
+
+.mainslider__dots .swiper-pagination-bullet-active:after {
+  opacity: 1;
+}
+
+.content-mainslider {
+  padding: 21px 35px 60px 21px;
+}
+
+.content-mainslider__title {
+  color: #000;
+  font-size: 48px;
+  padding-bottom: 55px;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.content-mainslider__title span {
+  color: #f68038;
+  display: block;
+}
+
+.content-mainslider__text {
+  padding-bottom: 10px;
+}
+
+.content-mainslider__footer {
+  text-align: center;
+}
+
+.content-mainslider__price {
+  color: #fff;
+  font-weight: 900;
+  font-size: 36px;
+  margin-bottom: 24px;
+}
+
+.content-mainslider__btn {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 33px;
+  border: 3px solid #fff;
+  border-radius: 15px;
+  padding: 0px 20px;
+}
+
+.content-mainslider__btn span {
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #fff;
+  padding-right: 25px;
+  background: url("../img/icons/main/aside/arrow.png") right no-repeat;
+}
+
+.mainslider-text {
+  color: #333;
+  text-transform: uppercase;
+  font-weight: 900;
+  line-height: 24px;
+}
+
+.mainslider-text_1 {
+  font-size: 18px;
+  color: #f68038;
+}
+
+.mainslider-text_2 {
+  background-color: #919191;
+  color: #fff;
+  padding: 5px 10px;
+}
+
+.mainslider-text_3 {
+  color: #979797;
 }
 
 @media (min-width: 767.98px) {
@@ -2351,8 +2543,9 @@ select {
 .menu-page{background-image:url("../img/main/aside/bg.webp")}
 .menu-page__parent .menu-page__link:after{background:url("../img/icons/main/aside/arrow.webp") 0 0 no-repeat}
 .item-product__add{background:url("../img/icons/main/aside/cart-grey.webp") left no-repeat}
-.search-page__select::before{background:url("../img/icons/main/content/search-page.webp") 0 0 no-repeat}
-.search-page__select::after{background:url("../img/icons/main/content/arrow_down.webp") 0 0 no-repeat}
+.search-page__title::before{background:url("../img/icons/main/content/search-page.webp") 0 0 no-repeat}
+.search-page__title::after{background:url("../img/icons/main/content/arrow_down.webp") 0 0 no-repeat}
+.content-mainslider__btn span{background:url("../img/icons/main/aside/arrow.webp") right no-repeat}
 }
 
  @media (min-width: 767.98px){
