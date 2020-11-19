@@ -5,7 +5,10 @@ function adaptive_header(w,h) {
 	let bottomHeaderColumn_1 = $('.bottom-header__column').eq(0);
 	let infoHeaderColumn = $('.info-header__column').eq(0);
 	let infoHeaderCart = $('.info-header__column_cart');
-	if (w < 639.98) {
+	let pageSideNews = $('.page__side-news');
+	let pageSideReviews = $('.page__side-reviews');
+
+	if (w < 640.98) {
 		if(!bottomHeaderColumn_1.hasClass('done') && !infoHeaderColumn.hasClass('done') && !infoHeaderCart.hasClass('done')){
 			bottomHeaderColumn_1.addClass('done').prependTo($('.menu__body'));
 			infoHeaderColumn.addClass('done').appendTo($('.menu__body'));
@@ -15,6 +18,15 @@ function adaptive_header(w,h) {
 		bottomHeaderColumn_1.removeClass('done').prependTo($('.bottom-header__content'));
 		infoHeaderColumn.removeClass('done').prependTo($('.bottom-header__info'));
 		infoHeaderCart.removeClass('done').appendTo($('.bottom-header__info'));
+	}
+	if (w < 991.98) {
+		if(!pageSideNews.hasClass('done') && !pageSideReviews.hasClass('done')) {
+			pageSideNews.addClass('done').appendTo($('.page__content'));
+			pageSideReviews.addClass('done').appendTo($('.page__content'));
+		}
+	} else {
+		pageSideNews.removeClass('done').appendTo($('.page__side'));
+		pageSideReviews.removeClass('done').appendTo($('.page__side'));
 	}
 }
 
