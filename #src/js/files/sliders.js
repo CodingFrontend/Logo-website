@@ -119,14 +119,14 @@ if (document.querySelector('.products-slider')) {
 		//preloadImages: false,
 		//lazy: true,
 		// Dotts
-		// pagination: {
-		// 	el: '.mainslider__dots',
-		// 	clickable: true,
-		// },
-		Arrows
+		pagination: {
+			el: '.products-slider__info',
+			type: 'fraction',
+		},
+		// Arrows
 		navigation: {
-			nextEl: '.products-slider__arrow_prev',
-			prevEl: '.products-slider__arrow_next',
+			nextEl: '.products-slider__arrow_next',
+			prevEl: '.products-slider__arrow_prev',
 		},
 		/*
 		breakpoints: {
@@ -158,5 +158,57 @@ if (document.querySelector('.products-slider')) {
 		//scrollbar: {
 		//	el: '.swiper-scrollbar',
 		//},
+	});
+}
+
+if (document.querySelector('.brands-slider')) {
+	let productsSlider = new Swiper('.brands-slider__body', {
+		/*
+		effect: 'fade',
+		autoplay: {
+			delay: 3000,
+			disableOnInteraction: false,
+		},
+		*/
+		observer: true,
+		observeParents: true,
+		slidesPerView: 5,
+		spaceBetween: 0,
+		autoHeight: true,
+		speed: 800,
+		//touchRatio: 0,
+		//simulateTouch: false,
+		// loop: true,
+		//preloadImages: false,
+		//lazy: true,
+		// Dotts
+		// pagination: {
+		// 	el: '.products-slider__info',
+		// 	type: 'fraction',
+		// },
+		// Arrows
+		navigation: {
+			nextEl: '.brands-slider__arrow_next',
+			prevEl: '.brands-slider__arrow_prev',
+		},
+		breakpoints: {
+			320: {
+				slidesPerView: 1,
+				spaceBetween: 0,
+				autoHeight: true,
+			},
+			768: {
+				slidesPerView: 2,
+			},
+			900: {
+				slidesPerView: 3,
+			},
+			1100: {
+				slidesPerView: 4,
+			},
+			1180: {
+				slidesPerView: 5,
+			},
+		},
 	});
 }
