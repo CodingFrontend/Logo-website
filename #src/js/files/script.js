@@ -1,4 +1,3 @@
-
 if (isMobile.any()) {
 	let menuParents = document.querySelectorAll('.menu-page__parent > a');
 	for (let i = 0; i < menuParents.length; i++) {
@@ -59,3 +58,28 @@ for (let i = 0; i < categories.length; i++) {
 		}
 	});
 }
+
+// filter
+const priceFilter = document.querySelector('.price-filter__slider');
+
+noUiSlider.create(priceFilter, {
+    start: [0, 100000],
+    connect: true,
+    tooltips: [wNumb({decimals: 0, thousand: ' '}), wNumb({decimals: 0, thousand: ' '})],
+    range: {
+        'min': 0,
+        'max': 200000
+    }
+});
+
+const priceStart = document.getElementById('price-start');
+const priceEnd = document.getElementById('price-end');
+
+
+priceStart.addEventListener('change', function() {
+	priceFilter.noUiSlider.set([priceStart.value, null]);
+});
+priceEnd.addEventListener('change', function() {
+	priceFilter.noUiSlider.set([null, priceEnd.value]);
+});
+//

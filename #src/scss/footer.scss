@@ -1,103 +1,168 @@
-select {
-	cursor: pointer;
-}
 .footer {
-	&__container{
+	position: relative;
+	z-index: 2;
+	&__container {}
+	&__body {
+		@media (min-width: $md2+px){
+			display: flex;
+			margin: 0px -15px;
+		}
 	}
-	&__top {
-		height: 10rem;
-		.footer__container {
-			@media (max-width: $md3+px){
-				border-bottom: .05rem solid #C7C7C7;
+	&__column {
+		@media (min-width: $md2+px){
+			padding: 0px 15px;
+			margin-bottom: 25px;
+			flex: 0 1 50%;
+		}
+		&:first-child{
+			display: flex;
+			flex-direction: column;
+		}
+	}
+	&__block {
+		flex: 1 1 auto;
+	}
+	&__payments {
+		img {
+			max-width: 100%;
+		}
+		@media (max-width: $md2+px){
+			padding-bottom: 20px;
+			text-align: center;
+		}
+	}
+	&__widgets {
+	}
+	&__bottom {
+		text-align: center;
+		@media (min-width: 360px){
+			display: flex;	
+			align-items: center;
+			padding: 12px 0px;
+			border-top: 1px solid #dadada;
+		}
+	}
+	&__copy {
+		flex: 1 1 auto;
+		font-size: 12px;
+		font-weight: 300;
+		color: #999999;
+		@media (max-width: 360px){
+			margin-bottom: 15px;
+		}
+	}
+	&__social {
+	}
+}
+.block-footer {
+	padding-bottom: 20px;
+	text-align: center;
+	@media (min-width: 560px){
+		display: flex;
+		flex: 1 1 auto;
+	}
+	&__column {
+		&:first-child{
+			flex: 0 0 165px;
+			@media (max-width: 560px){
+				padding-bottom: 20px;
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+			}
+		}
+		&:last-child{
+			flex: 1 1 auto;
+			@media (min-width: 560px){
+				padding-left: 45px;
 			}
 		}
 	}
-	&__col {
-		&_social {
-			font-size: 2.5rem;
+	&__logo {
+		display: inline-block;
+		margin-bottom: 25px;
+	}
+	&__phones {
+		display: inline-block;
+		background: url("../img/icons/footer/phone.png") left no-repeat;
+		padding-left: 35px;
+		p {
+			margin-bottom: 5px;
+			&:last-child{
+				margin: 0;
+			}
+		}
+		@media (max-width: 560px){
+			background: none!important;
+			padding-left: 0;
 		}
 	}
-	&__info {
-		font-size: 1.4rem;
-		line-height: 1.7rem;
-		color: #B3B3B3;
-	}
-	&__credits {
-		@media (max-width: $md3+px){
-			padding: 2.7rem 1.5rem;
+	&__phone {
+		color: #333;
+		font-weight: 900;
+		@media (max-width: 560px){
+			font-size: 18px;
 		}
 	}
-	&__bottom {
-		padding: 1rem 0rem 3.1rem 0rem;
-		background: #FAF9F8;
-		@media (max-width: $md3+px){
-			background: none;
-			padding: 0rem 0rem 2rem 0rem;
+	&__delivery {}
+}
+.delivery-footer {
+	@media (max-width: 560px){
+		text-align: center;
+	}
+	&__title {
+		margin-bottom: 15px;
+		font-weight: 900;
+		text-transform: uppercase;
+		color: #999;
+	}
+	&__items {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		margin: 0px -15px;
+	}
+	&__item {
+		padding: 15px;
+		@extend %graystyle;
+		&:hover {
+			@extend %graystyleoff;
+		}
+		@media (max-width: 560px){
+			justify-content: center;
 		}
 	}
 }
-.container {
+.widgets-footer {
+	text-align: center;
+	margin-bottom: 20px;
+	@media (min-width: 560px){
+		display: flex;
+		justify-content: center;
+	}
+	&__column {
+		display: block;
+		margin-bottom: 20px;
+		@media (min-width: 560px){
+			padding-right: 30px;
+			&:last-child{
+				padding: 0;
+			}
+		}
+	}
 }
-.row {
-}
-.col-md-6 {
-}
-.d-flex {
-}
-.justify-content-md-end {
-}
-.fab {
-}
-.fa-vk {
-	color: #5476A4;
-}
-.fa-facebook-square {
-	color: #4A68AD;
-}
-.fa-instagram {
-	color: #37373F;
-}
-.social {
-	margin-right: 3rem;
-	@media (max-width: $md3+px){
+.social-footer {
+	text-align: center;
+	@media (min-width: 360px){
+		display: flex;
+		align-items: center;
+	}
+	&__item {
+		display: inline-block;
+		cursor: pointer;
+		margin-right: 10px;
 		&:last-child{
-			margin-right: 0rem;
+			margin: 0;
 		}
 	}
 }
-.col-md-3 {
-}
-.mastercard, .visa, .paypal {
-	min-width: 4.4rem;
-	min-height: 3rem;
-	margin-right: 2rem;
-	@media (max-width: $md2+px){
-		margin-right: 1.7rem;
-	}
-}
-.mastercard {
-	background: url("../img/icons/MC.svg") 0 0 no-repeat;
-}
-.visa {
-	background: url("../img/icons/VISA.svg") 0 0 no-repeat;
-}
-.paypal {
-	background: url("../img/icons/PP.svg") 0 0 no-repeat;
-}
-.lang {
-	background: transparent;
-	font-size: 1.9rem;
-	color: #37373F;
-}
-.fa-cc-paypal {
-}
-.flex-column {
-}
-.align-items-center {
-}
-
-//====================================================================================================
-
-//====================================================================================================
-
-

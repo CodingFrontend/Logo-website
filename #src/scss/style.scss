@@ -71,10 +71,12 @@ body {
 //@import "datepicker";
 //@import "lightgallery";
 //@import "pagging";
+// @import "nouislider";
 @import "popup";
 @import "header";
 @import "footer";
 @import "home";
+@import "catalog";
 //</ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
 
 //<ОСНОВНОЙ БЛОК>====================================================================================================
@@ -122,9 +124,7 @@ body {
 		padding-bottom: 50px;
 	}
 	&__menu {
-		@media (min-width: $md1+px){
-			margin-bottom: 40px;
-		}
+		margin-bottom: 40px;
 	}
 	&__content {
 		@media (min-width: $md2+px){
@@ -148,6 +148,9 @@ body {
 	}
 	&__brands {
 		margin-bottom: 30px;
+	}
+	&__info {
+		margin-bottom: 35px;
 	}
 }
 .menu-page {
@@ -392,7 +395,7 @@ body {
 				opacity: 1;
 				visibility: visible;
 			}
-			.item-product__text, .item-product__footer {
+			.item-product__text_slider, .item-product__footer_slider {
 				opacity: 0;
 				visibility: hidden;
 			}
@@ -430,9 +433,6 @@ body {
 		line-height: 21px;
 		color: $color;
 		margin-bottom: 20px;
-		@include transition(all .5s ease);
-		opacity: 1;
-		visibility: visible;
 		span {
 			display: block;
 			font-weight: 900;
@@ -440,13 +440,20 @@ body {
 		&:hover {
 			text-decoration: underline;
 		}
+		&_slider {
+			@include transition(all .5s ease);
+			opacity: 1;
+			visibility: visible;
+		}
 	}
 	&__footer {
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-between;
 		align-items: center;
-		@include transition(all .5s ease);
+		}
+		&_slider {
+			@include transition(all .5s ease);
 			opacity: 1;
 			visibility: visible;
 		}
@@ -769,6 +776,9 @@ body {
 			background-size: cover;
 			background-repeat: no-repeat;
 			background-position: center;
+			&:last-child{
+				margin-right: 0;
+			}
 			&:after{
 				opacity: 0;
 				@include transition(all .3s ease);
@@ -806,6 +816,9 @@ body {
 		span {
 			color: #f68038;
 			display: block;
+		}
+		@media (max-width: 560px){
+			font-size: 30px;
 		}
 	}
 	&__text {
@@ -1117,9 +1130,6 @@ body {
 			}
 		}
 	}
-}
-.page-info {
-	&__menu {}
 }
 .info-menu {
 	border-top: 3px dashed #dadada;

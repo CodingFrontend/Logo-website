@@ -96,6 +96,34 @@ let _slideToggle = (target, duration = 500) => {
     }
   }
 }
+//Spollers
+let spollers = document.querySelectorAll("._spoller");
+if (spollers.length > 0) {
+  for (let index = 0; index < spollers.length; index++) {
+    const spoller = spollers[index];
+    spoller.addEventListener("click", function (e) {
+      if (spoller.classList.contains('_spoller-992') && window.innerWidth > 992) {
+        return false;
+      }
+      if (spoller.classList.contains('_spoller-768') && window.innerWidth > 768) {
+        return false;
+      }
+      if (spoller.closest('._spollers').classList.contains('_one')) {
+        let curent_spollers = spoller.closest('._spollers').querySelectorAll('._spoller');
+        for (let i = 0; i < curent_spollers.length; i++) {
+          let el = curent_spollers[i];
+          if (el != spoller) {
+            el.classList.remove('_active');
+            _slideUp(el.nextElementSibling);
+          }
+        }
+      }
+      spoller.classList.toggle('_active');
+      _slideToggle(spoller.nextElementSibling);
+    });
+  }
+}
+//=================
 //========================================
 // Яндекс карты
 	// ymaps.ready(init); 
@@ -298,7 +326,6 @@ let _slideToggle = (target, duration = 500) => {
 
 // 
 
-
 if (isMobile.any()) {
 	let menuParents = document.querySelectorAll('.menu-page__parent > a');
 	for (let i = 0; i < menuParents.length; i++) {
@@ -359,6 +386,31 @@ for (let i = 0; i < categories.length; i++) {
 		}
 	});
 }
+
+// filter
+const priceFilter = document.querySelector('.price-filter__slider');
+
+noUiSlider.create(priceFilter, {
+    start: [0, 100000],
+    connect: true,
+    tooltips: [wNumb({decimals: 0, thousand: ' '}), wNumb({decimals: 0, thousand: ' '})],
+    range: {
+        'min': 0,
+        'max': 200000
+    }
+});
+
+const priceStart = document.getElementById('price-start');
+const priceEnd = document.getElementById('price-end');
+
+
+priceStart.addEventListener('change', function() {
+	priceFilter.noUiSlider.set([priceStart.value, null]);
+});
+priceEnd.addEventListener('change', function() {
+	priceFilter.noUiSlider.set([null, priceEnd.value]);
+});
+//
 // burger
 $('.icon-menu').click(function(event){
 	$(this).toggleClass('_active');
@@ -620,14 +672,16 @@ function adaptive_header(w,h) {
 		infoHeaderColumn.removeClass('done').prependTo($('.bottom-header__info'));
 		infoHeaderCart.removeClass('done').appendTo($('.bottom-header__info'));
 	}
-	if (w < 991.98) {
-		if(!pageSideNews.hasClass('done') && !pageSideReviews.hasClass('done')) {
-			pageSideNews.addClass('done').appendTo($('.page__content'));
-			pageSideReviews.addClass('done').appendTo($('.page__content'));
+	if (pageSideNews.length && pageSideReviews.length) {
+		if (w < 991.98) {
+			if(!pageSideNews.hasClass('done') && !pageSideReviews.hasClass('done')) {
+				pageSideNews.addClass('done').appendTo($('.page__content'));
+				pageSideReviews.addClass('done').appendTo($('.page__content'));
+			}
+		} else {
+			pageSideNews.removeClass('done').appendTo($('.page__side'));
+			pageSideReviews.removeClass('done').appendTo($('.page__side'));
 		}
-	} else {
-		pageSideNews.removeClass('done').appendTo($('.page__side'));
-		pageSideReviews.removeClass('done').appendTo($('.page__side'));
 	}
 }
 

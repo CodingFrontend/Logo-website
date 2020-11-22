@@ -1,0 +1,213 @@
+//====================================================================================================
+.filter {
+	border: 4px solid #72c9d4;
+	&__title {
+		padding: 25px 14px 5px 14px;
+		color: #36949f;
+		font-size: 24px;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+	&__body {}
+	&__section {
+	}
+}
+.section-filter {
+	padding: 22px 14px;
+	border-bottom: 1px solid #72c9d4;
+	&:last-child{
+		border: none;
+	}
+	&__label {
+		color: #36949f;
+		font-size: 16px;
+		font-weight: 700;
+		min-height: 30px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		&._spoller {
+			cursor: pointer;
+			&:after{
+				content: "";
+				border-radius: 50%;
+				flex: 0 0 30px;
+				width: 30px;
+				height: 30px;
+				border: 1px solid #72c9d4;
+				background: url("../img/icons/catalog/arrow-right.png") center no-repeat;
+			}
+			&._active {
+				color: #333333;
+				&:after{
+					background: url("../img/icons/catalog/arrow-down.png") center no-repeat;
+					border: 1px solid #adadad;
+				}
+			}
+		}
+	}
+	&__body {
+		padding-top: 15px;
+		&._spoller {
+			display: none;
+		}
+	}
+}
+
+//====================================================================================================
+
+//====================================================================================================
+.price-filter {
+	&__slider {
+		margin-bottom: 50px;
+		height: 4px;
+		background-color: #eaeaea;
+		.noUi-base, .noUi-connects{
+			height: 4px;
+			position: relative;
+		}
+		.noUi-connect {
+			background: #ffcda5;
+			width: 100%;
+			height: 100%;
+		}
+		.noUi-origin, .noUi-connect {
+			will-change: transform;
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			right: 0;
+			transform-origin: 0 0;
+			transform-style: flat;
+			height: 100%;
+		}
+		.noUi-handle {
+			width: 23px;
+			height: 23px;
+			border: 1px solid #f68038;
+			background-color: #fff;
+			border-radius: 50%;
+			position: relative;
+			top: -10px;
+			cursor: pointer;
+			right: 0;
+			&:after{
+				content: "";
+				width: 15px;
+				height: 15px;
+				background-color: #f68038;
+				border-radius: 50%;
+				position: absolute;
+				top: 3px;
+				left: 3px;
+			}
+		}
+		.noUi-tooltip {
+			display: block;
+			position: absolute;
+			color: #999999;
+			padding: 5px;
+			text-align: center;
+			white-space: nowrap;
+			transform: translate(-50%, 0);
+			left: 50%;
+			top: 120%;
+		}
+	}
+	&__values {}
+}
+.values-price-filter {
+	display: flex;
+	margin-right: 20px;
+	&__column {
+		flex: 0 1 50%;
+		display: flex;
+		align-items: center;
+		margin-left: 25px;
+		&:first-child{
+			margin: 0;
+		}
+	}
+	&__label {
+		font-weight: 300;
+		font-size: 12px;
+		color: #999999;
+	}
+	&__input {
+		flex: 1 1 auto;
+		margin-left: 10px;
+		border: 1px solid #dadada;
+		.input {
+			font-size: 12px;
+			height: 20px;
+			padding: 0px 10px;
+		}
+	}
+}
+.compare-filter {
+	&__items {
+		padding-right: 15px;
+		margin-bottom: 22px;
+	}
+	&__item {
+		display: flex;
+		justify-content: space-between;
+		margin-bottom: 10px;
+		&:last-child {
+			margin: 0;
+		}
+	}
+	&__link {
+		color: #1ab9ce;
+		text-decoration: underline;
+		font-size: 12px;
+		font-weight: 300;
+		line-height: 16px;
+		@include transition(all .3s ease);
+	}
+	&__close {
+		flex: 0 0 10px;
+		background: url("../img/icons/catalog/close.png") left no-repeat;
+		display: inline-block;
+		width: 10px;
+		height: 10px;
+		margin-left: 5px;
+		@include transition(all .3s ease);
+		@media (min-width: $md2+px){
+			&:hover {
+				background: url("../img/icons/catalog/close-h.png") left no-repeat;
+			}
+		}
+	}
+	&__footer {
+		display: flex;
+		justify-content: space-between;
+	}
+	&__btn {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 34px;
+		padding: 0px 20px;
+		background-color: #1ab9ce;
+		border-radius: 25px;
+		span {
+			padding-left: 30px;
+			font-weight: 900;
+			line-height: 34px;
+			color: #fff;
+			text-transform: uppercase;
+			background: url("../img/icons/catalog/compare.png") left no-repeat;
+		}
+	}
+	&__trash {
+		display: inline-block;
+		width: 40px;
+		height: 40px;
+		background: #e6e6e6 url("../img/icons/catalog/trash.png") center no-repeat;
+		border-radius: 50%;
+	}
+}
+
+
+//====================================================================================================

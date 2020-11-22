@@ -19,14 +19,16 @@ function adaptive_header(w,h) {
 		infoHeaderColumn.removeClass('done').prependTo($('.bottom-header__info'));
 		infoHeaderCart.removeClass('done').appendTo($('.bottom-header__info'));
 	}
-	if (w < 991.98) {
-		if(!pageSideNews.hasClass('done') && !pageSideReviews.hasClass('done')) {
-			pageSideNews.addClass('done').appendTo($('.page__content'));
-			pageSideReviews.addClass('done').appendTo($('.page__content'));
+	if (pageSideNews.length && pageSideReviews.length) {
+		if (w < 991.98) {
+			if(!pageSideNews.hasClass('done') && !pageSideReviews.hasClass('done')) {
+				pageSideNews.addClass('done').appendTo($('.page__content'));
+				pageSideReviews.addClass('done').appendTo($('.page__content'));
+			}
+		} else {
+			pageSideNews.removeClass('done').appendTo($('.page__side'));
+			pageSideReviews.removeClass('done').appendTo($('.page__side'));
 		}
-	} else {
-		pageSideNews.removeClass('done').appendTo($('.page__side'));
-		pageSideReviews.removeClass('done').appendTo($('.page__side'));
 	}
 }
 
