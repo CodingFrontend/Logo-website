@@ -7,6 +7,21 @@
 		font-size: 24px;
 		font-weight: 700;
 		text-transform: uppercase;
+		@include transition(all .3s ease);
+		@media (max-width: $md2+px){
+			padding: 25px 14px 25px 14px;
+			&._active {
+				padding: 25px 14px 5px 14px;
+			}
+		}
+	}
+	&__content {
+		@media (min-width: $md2+px){
+			display: block!important;
+		}
+		@media (max-width: $md2+px){
+			display: none;
+		}
 	}
 	&__body {}
 	&__section {
@@ -45,12 +60,12 @@
 				}
 			}
 		}
+		&._spoller + .section-filter__body {
+			display: none;
+		}
 	}
 	&__body {
 		padding-top: 15px;
-		&._spoller {
-			display: none;
-		}
 	}
 }
 
@@ -61,15 +76,26 @@
 	&__slider {
 		margin-bottom: 50px;
 		height: 4px;
+		width: 95%;
 		background-color: #eaeaea;
+		position: relative;
+		margin: 0px auto 50px auto;
 		.noUi-base, .noUi-connects{
 			height: 4px;
 			position: relative;
 		}
+		.noUi-connects {
+			overflow: hidden;
+			z-index: 0;
+		}
 		.noUi-connect {
 			background: #ffcda5;
+			height: 4px;
 			width: 100%;
-			height: 100%;
+		}
+		.noUi-origin {
+			width: 10%;
+			height: 0;
 		}
 		.noUi-origin, .noUi-connect {
 			will-change: transform;
@@ -79,7 +105,6 @@
 			right: 0;
 			transform-origin: 0 0;
 			transform-style: flat;
-			height: 100%;
 		}
 		.noUi-handle {
 			width: 23px;
@@ -87,10 +112,10 @@
 			border: 1px solid #f68038;
 			background-color: #fff;
 			border-radius: 50%;
-			position: relative;
+			position: absolute;
 			top: -10px;
 			cursor: pointer;
-			right: 0;
+			right: -5px;
 			&:after{
 				content: "";
 				width: 15px;
@@ -101,6 +126,10 @@
 				top: 3px;
 				left: 3px;
 			}
+		}
+		.noUi-touch-area {
+			width: 100%;
+			height: 100%;
 		}
 		.noUi-tooltip {
 			display: block;
@@ -207,6 +236,89 @@
 		background: #e6e6e6 url("../img/icons/catalog/trash.png") center no-repeat;
 		border-radius: 50%;
 	}
+}
+.section-filter {
+	&__checkbox {
+		display: block;
+		margin-bottom: 15px;
+		&:last-child{
+			margin: 0;
+		}
+	}
+}
+.filter {
+	&__footer {
+		padding: 22px 14px;
+		display: flex;
+		justify-content: space-between;
+	}
+	&__btn {}
+}
+.breadcrumbs {
+	overflow: auto;
+	margin-bottom: 20px;
+	height: 20px;
+	&__list {
+		display: flex;
+		li {
+			padding-right: 20px;
+			margin: 0px 10px 10px 0px;
+			background: url("../img/icons/catalog/arrow-right.png") right / 10px no-repeat;
+			&:last-child{
+				background: none;
+				margin-right: 0;
+			}
+		}
+	}
+	&__link {
+		font-weight: 300;
+		color: #1ab9ce;
+		text-decoration: underline;
+	}
+	&__item {
+		font-weight: 300;
+		color: #666666;
+	}
+}
+.catalog {
+	&__title {
+		font-size: 30px;
+		font-weight: 900;
+		text-transform: uppercase;
+		color: #dadada;
+	}
+	&__actions {}
+}
+.actions-catalog {
+	&__order {}
+	&__view {}
+}
+.order-catalog {
+	display: flex;
+	align-items: center;
+	padding: 9px 25px;
+	background-color: #f3f3f3;
+	&__label {
+		font-weight: 900;
+		color: #333;
+		&__select {}
+	}
+}
+.form {
+}
+.view-catalog {
+	display: flex;
+	align-items: center;
+	&__label {
+		font-weight: 900;
+		color: #333;
+	}
+	&__select {}
+}
+.page {
+	&__slider {}
+}
+.mainslider {
 }
 
 

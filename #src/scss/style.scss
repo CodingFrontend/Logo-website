@@ -125,6 +125,9 @@ body {
 	}
 	&__menu {
 		margin-bottom: 40px;
+		@media (max-width: $md2+px){
+			margin-bottom: 20px;
+		}
 	}
 	&__content {
 		@media (min-width: $md2+px){
@@ -138,12 +141,12 @@ body {
 		z-index: 5;
 	}
 	&__slider {
-		padding: 22px 0px 70px 0px;
+		padding: 0px 0px 70px 0px;
 		@media (max-width: $md2+px){
-			padding: 22px 0px 30px 0px;
+			padding: 0px 0px 30px 0px;
 		}
 		@media (max-width: $md3+px){
-			padding: 15px 0px 20px 0px;
+			padding: 0px 0px 20px 0px;
 		}
 	}
 	&__brands {
@@ -606,6 +609,7 @@ body {
 }
 .search-page {
 	display: flex;
+	margin-bottom: 35px;
 	&__select {
 		cursor: pointer;
 		@media (max-width: $md3+px){

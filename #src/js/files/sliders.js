@@ -96,7 +96,7 @@ if (document.querySelector('.mainslider__body')) {
 		const mainsliderImage = mainsliderImages[i].querySelector('img').getAttribute('src');
 		mainsliderDotts[i].style.backgroundImage = "url('" + mainsliderImage + "')";
 	}
-}
+};
 
 if (document.querySelector('.products-slider')) {
 	let productsSlider = new Swiper('.products-slider__item', {
@@ -159,7 +159,7 @@ if (document.querySelector('.products-slider')) {
 		//	el: '.swiper-scrollbar',
 		//},
 	});
-}
+};
 
 if (document.querySelector('.brands-slider')) {
 	let productsSlider = new Swiper('.brands-slider__body', {
@@ -211,4 +211,4 @@ if (document.querySelector('.brands-slider')) {
 			},
 		},
 	});
-}
+};

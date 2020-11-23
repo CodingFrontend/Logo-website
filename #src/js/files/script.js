@@ -60,26 +60,36 @@ for (let i = 0; i < categories.length; i++) {
 }
 
 // filter
-const priceFilter = document.querySelector('.price-filter__slider');
+$( document ).ready(function() {
+	const priceFilter = document.querySelector('.price-filter__slider');
 
-noUiSlider.create(priceFilter, {
-    start: [0, 100000],
-    connect: true,
-    tooltips: [wNumb({decimals: 0, thousand: ' '}), wNumb({decimals: 0, thousand: ' '})],
-    range: {
-        'min': 0,
-        'max': 200000
-    }
-});
+	noUiSlider.create(priceFilter, {
+	    start: [0, 100000],
+	    connect: true,
+	    tooltips: [wNumb({decimals: 0, thousand: ' '}), wNumb({decimals: 0, thousand: ' '})],
+	    range: {
+	        'min': 0,
+	        'max': 200000
+	    }
+	});
 
-const priceStart = document.getElementById('price-start');
-const priceEnd = document.getElementById('price-end');
+	const priceStart = document.getElementById('price-start');
+	const priceEnd = document.getElementById('price-end');
 
 
-priceStart.addEventListener('change', function() {
-	priceFilter.noUiSlider.set([priceStart.value, null]);
-});
-priceEnd.addEventListener('change', function() {
-	priceFilter.noUiSlider.set([null, priceEnd.value]);
+	priceStart.addEventListener('change', function() {
+		priceFilter.noUiSlider.set([priceStart.value, null]);
+	});
+	priceEnd.addEventListener('change', function() {
+		priceFilter.noUiSlider.set([null, priceEnd.value]);
+	});
 });
 //
+
+if (isMobile.any()) {
+	const filterTitle = document.querySelector('.filter__title');
+	filterTitle.addEventListener('click', function(e) {
+		filterTitle.classList.toggle('_active');
+		_slideToggle(filterTitle.nextElementSibling);
+	});
+}

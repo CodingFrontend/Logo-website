@@ -19,10 +19,30 @@
 //<BUTTONS (a.btn+tab)>====================================================================================================
 .btn {
 	display: inline-flex;
-	padding: 0px 0px;
+	padding: 0px 25px;
+	height: 35px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background-color: #fd8424;
+	font-size: 12px;
+	line-height: 18px;
+	font-weight: 400;
+	color: #fff;
+	@include transition(all .3s ease);
 	@media (min-width: 992px) {
 		&:hover {
+			background-color: #b86029;
 		}
+	}
+	&_grey {
+		background-color: #e6e6e6;
+		color: #666666;
+		@media (min-width: 992px) {
+		&:hover {
+			background-color: #c7c7c7;
+		}
+	}
 	}
 	&._fw {
 		width: 100%;
@@ -70,7 +90,7 @@
 			transition: all 0.3s ease 0s;
 			width: 11px;
 			height: 7px;
-			background: url("../img/icons/select.svg") center / 100% no-repeat;
+			background: url("../img/icons/catalog/select.png") center / 100% no-repeat;
 		}
 	}
 	&__input {
@@ -159,7 +179,16 @@ textarea.input {
 		opacity: 0;
 		visibility: hidden;
 		&:checked + .checkbox__text:before {
-			background: #fff url("../img/icons/check.svg") center no-repeat;
+			border: 2px solid #009aaf;
+		}
+		&:checked + .checkbox__text:after {
+			content: "";
+			position: absolute;
+			left: 3px;
+			top: 3px;
+			width: 9px;
+			height: 9px;
+			background-color: #53b5de;
 		}
 	}
 	// .checkbox__text
@@ -167,22 +196,23 @@ textarea.input {
 		display: inline-flex;
 		align-items: center;
 		position: relative;
-		font-size: 16px;
-		color: #ffffff;
+		font-size: 12px;
+		font-weight: 300;
+		color: #666666;
 		letter-spacing: -0.3px;
-		line-height: calc(20 / 16);
+		line-height: calc(15 / 12);
 		cursor: pointer;
 		&:before {
 			content: "";
 			align-self: flex-start;
 			margin: 0px 14px 0px 0px;
-			flex: 0 0 20px;
+			flex: 0 0 15px;
 			left: 0;
 			top: 0;
-			width: 20px;
-			height: 18px;
+			width: 15px;
+			height: 15px;
 			background: #fff;
-			border: 1px solid #a7a9ac;
+			border: 2px solid #dadada;
 		}
 	}
 	a {
