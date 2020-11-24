@@ -257,7 +257,6 @@
 .breadcrumbs {
 	overflow: auto;
 	margin-bottom: 20px;
-	height: 20px;
 	&__list {
 		display: flex;
 		li {
@@ -282,38 +281,112 @@
 }
 .catalog {
 	&__title {
+		margin-bottom: 20px;
 		font-size: 30px;
 		font-weight: 900;
 		text-transform: uppercase;
 		color: #dadada;
 	}
 	&__actions {}
+	&__nav {
+		&_top {
+			margin-bottom: 25px;
+		}
+	}
 }
-.actions-catalog {
-	&__order {}
-	&__view {}
+.nav-catalog {
+	padding: 10px 15px;
+	border-top: 1px solid #ededed;
+	border-bottom: 1px solid #ededed;
+	@media (min-width: 540px){
+		display: flex;
+		justify-content: space-between;
+	}
+	&__show {
+		.select__item {
+			min-width: 0;
+			border: 1px solid #f3f3f3;
+		}
+		.select__value {
+			color: #333;
+			&:before {
+				margin-left: 10px;
+			}
+		}
+	}
+	&__pages {}
 }
-.order-catalog {
-	display: flex;
-	align-items: center;
-	padding: 9px 25px;
-	background-color: #f3f3f3;
+.show-catalog {
+	@media (min-width: 540px){
+		display: flex;
+		align-items: center;
+	}
 	&__label {
 		font-weight: 900;
 		color: #333;
-		&__select {}
+		margin-right: 15px;
+		@media (max-width: 540px){
+			margin-bottom: 10px;
+		}
+	}
+	&__select {}
+}
+.actions-catalog {
+	padding: 9px 25px;
+	background-color: #f3f3f3;
+	margin-bottom: 15px;
+	@media (min-width: 540px){
+		display: flex;
+		justify-content: space-between;
+	}
+	&__order {
+		@media (max-width: 540px){
+			margin-bottom: 10px;
+		}
+	}
+	&__view {
+		
+	}
+}
+.order-catalog {
+	@media (min-width: 540px){
+		display: flex;
+		align-items: center;
+	}
+	&__label {
+		font-weight: 900;
+		color: #333;
+		margin-right: 15px;
+		@media (max-width: 540px){
+			margin-bottom: 10px;
+		}
+		&__select {
+		}
 	}
 }
 .form {
 }
 .view-catalog {
-	display: flex;
-	align-items: center;
-	&__label {
-		font-weight: 900;
-		color: #333;
+	&__item {
+		cursor: pointer;
+		display: inline-block;
+		width: 34px;
+		height: 34px;
+		@include transition(all .3s ease);
+		&_grid {
+			background: url("../img/icons/catalog/grid.png") center no-repeat;
+			margin-right: 10px;
+			&:hover {
+				background: url("../img/icons/catalog/grid-active.png") center no-repeat;
+			}
+		}
+		&_list {
+			background: url("../img/icons/catalog/list.png") center no-repeat;
+			&:hover {
+				background: url("../img/icons/catalog/list-active.png") center no-repeat;
+			}
+		}
 	}
-	&__select {}
 }
 .page {
 	&__slider {}

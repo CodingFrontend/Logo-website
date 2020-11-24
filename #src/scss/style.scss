@@ -70,8 +70,8 @@ body {
 //<ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТИЛЕЙ СТРАНИЦ И ЭЛЕМЕНТОВ>====================================================================================================
 //@import "datepicker";
 //@import "lightgallery";
-//@import "pagging";
 // @import "nouislider";
+@import "pagging";
 @import "popup";
 @import "header";
 @import "footer";
@@ -546,6 +546,9 @@ body {
 		width: 57px;
 		height: 57px;
 		margin: 0 auto 25px auto;
+		&_catalog {
+			margin: 0;
+		}
 	}
 	&__footer {
 		display: flex;
@@ -600,6 +603,17 @@ body {
 	&__value {
 		color: #fd8424;
 		font-weight: 900;
+	}
+	&__compare {
+		background: url("../img/icons/catalog/compare.png") left no-repeat;
+		padding-left: 33px;
+		display: inline-block;
+		line-height: 32px;
+		span {
+			color: #fff;
+			font-weight: 300;
+			border-bottom: 1px dashed #fff;
+		}
 	}
 }
 .rub {
