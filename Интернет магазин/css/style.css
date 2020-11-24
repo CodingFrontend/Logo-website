@@ -2134,6 +2134,32 @@ body.ie ._ibg img {
   background: url("../img/icons/catalog/list-active.png") center no-repeat;
 }
 
+.product__title {
+  font-size: 36px;
+  color: #333;
+  text-transform: uppercase;
+  line-height: 35px;
+  margin-bottom: 20px;
+}
+
+.product__title span {
+  display: block;
+  font-size: 30px;
+  color: #dadada;
+}
+
+.product__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.product__body {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
 .ibg {
   background-size: cover;
   background-repeat: no-repeat;
