@@ -212,3 +212,108 @@ if (document.querySelector('.brands-slider')) {
 		},
 	});
 };
+
+if (document.querySelector('.images-product')) {
+	let imagesSubslider = new Swiper('.images-product__subslider', {
+		/*
+		effect: 'fade',
+		autoplay: {
+			delay: 3000,
+			disableOnInteraction: false,
+		},
+		*/
+		observer: true,
+		observeParents: true,
+		slidesPerView: 4,
+		spaceBetween: 0,
+		autoHeight: true,
+		speed: 800,
+		//touchRatio: 0,
+		//simulateTouch: false,
+		// loop: true,
+		//preloadImages: false,
+		//lazy: true,
+		// Dotts
+		// pagination: {
+		// 	el: '.products-slider__info',
+		// 	type: 'fraction',
+		// },
+		// Arrows
+		// navigation: {
+		// 	nextEl: '.brands-slider__arrow_next',
+		// 	prevEl: '.brands-slider__arrow_prev',
+		// },
+		// breakpoints: {
+		// 	320: {
+		// 		slidesPerView: 1,
+		// 		spaceBetween: 0,
+		// 		autoHeight: true,
+		// 	},
+		// 	768: {
+		// 		slidesPerView: 2,
+		// 	},
+		// 	900: {
+		// 		slidesPerView: 3,
+		// 	},
+		// 	1100: {
+		// 		slidesPerView: 4,
+		// 	},
+		// 	1180: {
+		// 		slidesPerView: 5,
+		// 	},
+		// },
+	});
+	let imagesMainslider = new Swiper('.images-product__mainslider', {
+		/*
+		effect: 'fade',
+		autoplay: {
+			delay: 3000,
+			disableOnInteraction: false,
+		},
+		*/
+		observer: true,
+		observeParents: true,
+		slidesPerView: 1,
+		spaceBetween: 0,
+		autoHeight: true,
+		speed: 800,
+		thumbs: {
+        swiper: imagesSubslider
+      },
+		//touchRatio: 0,
+		//simulateTouch: false,
+		// loop: true,
+		//preloadImages: false,
+		//lazy: true,
+		// Dotts
+		// pagination: {
+		// 	el: '.products-slider__info',
+		// 	type: 'fraction',
+		// },
+		// Arrows
+		// navigation: {
+		// 	nextEl: '.brands-slider__arrow_next',
+		// 	prevEl: '.brands-slider__arrow_prev',
+		// },
+		// breakpoints: {
+		// 	320: {
+		// 		slidesPerView: 1,
+		// 		spaceBetween: 0,
+		// 		autoHeight: true,
+		// 	},
+		// 	768: {
+		// 		slidesPerView: 2,
+		// 	},
+		// 	900: {
+		// 		slidesPerView: 3,
+		// 	},
+		// 	1100: {
+		// 		slidesPerView: 4,
+		// 	},
+		// 	1180: {
+		// 		slidesPerView: 5,
+		// 	},
+		// },
+	});
+};
+

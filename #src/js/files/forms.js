@@ -409,7 +409,7 @@ if (quantityButtons.length > 0) {
 			} else {
 				value = value - 1;
 				if (value < 1) {
-					value = 1
+					value = 0
 				}
 			}
 			quantityButton.closest('.quantity').querySelector('input').value = value;
