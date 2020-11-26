@@ -159,11 +159,13 @@ textarea {
 	&._focus {
 	}
 	&._error {
+		border: 1px solid red;
 	}
 }
 textarea.input {
 	resize: none;
-	padding: 0px 0px;
+	padding: 5px 15px;
+	height: 120px;
 }
 //</INPUT>====================================================================================================
 
@@ -226,7 +228,6 @@ textarea.input {
 	&._error {
 		.checkbox__text {
 			&:before {
-				border: 1px solid #ee1212;
 			}
 		}
 	}

@@ -460,9 +460,9 @@ function form_validate(form) {
 	if (form_req.length > 0) {
 		for (let index = 0; index < form_req.length; index++) {
 			const el = form_req[index];
-			if (!_is_hidden(el)) {
+
 				error += form_validate_input(el);
-			}
+			
 		}
 	}
 	return error;
