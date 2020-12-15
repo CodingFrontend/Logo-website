@@ -1,6 +1,0 @@
-@@include('files/functions.js', {})
-@@include('files/script.js', {})
-@@include('files/forms.js', {})
-@@include('files/jq-functions.js', {})
-@@include('files/adaptive.js', {})
-@@include('files/sliders.js', {})
